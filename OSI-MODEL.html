@@ -1,0 +1,114 @@
+
+<style>
+  :root { --dur: 0.35s; }
+  .wrap { padding: 1rem 0; font-size: 14px; }
+  .controls { display: flex; gap: 8px; margin-bottom: 1.5rem; justify-content: center; }
+  .ctrl-btn { padding: 6px 18px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-secondary); color: var(--color-text-primary); cursor: pointer; font-size: 13px; transition: background var(--dur); }
+  .ctrl-btn.active { background: var(--color-background-info); color: var(--color-text-info); border-color: transparent; }
+  .stack { display: flex; flex-direction: column; gap: 6px; max-width: 640px; margin: 0 auto; }
+  .layer { display: flex; align-items: stretch; border-radius: 10px; overflow: hidden; border: 0.5px solid var(--color-border-tertiary); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+  .layer:hover { transform: translateY(-1px); }
+  .layer.active { box-shadow: 0 0 0 2px var(--accent); }
+  .num { width: 36px; min-width: 36px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: #fff; }
+  .main { flex: 1; padding: 10px 14px; background: var(--color-background-primary); }
+  .layer-name { font-weight: 500; font-size: 14px; color: var(--color-text-primary); }
+  .layer-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+  .detail { margin-top: 8px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; padding-top: 8px; border-top: 0.5px solid var(--color-border-tertiary); display: none; }
+  .detail.show { display: block; }
+  .arrow-col { width: 40px; min-width: 40px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--color-text-secondary); background: var(--color-background-secondary); }
+  .progress-wrap { max-width: 640px; margin: 1.2rem auto; }
+  .progress-bar { height: 8px; border-radius: 4px; background: var(--color-border-tertiary); overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; background: #378ADD; width: 0%; transition: width 0.4s ease; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-secondary); margin-top: 4px; }
+  .legend { display: flex; gap: 16px; justify-content: center; margin-bottom: 1rem; font-size: 12px; color: var(--color-text-secondary); flex-wrap: wrap; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: middle; }
+  .status-msg { text-align: center; font-size: 13px; color: var(--color-text-secondary); margin-bottom: 0.5rem; min-height: 20px; }
+</style>
+<div class="wrap">
+  <div class="controls">
+    <button class="ctrl-btn active" onclick="setDir('send',this)">📤 Senden</button>
+    <button class="ctrl-btn" onclick="setDir('recv',this)">📥 Empfangen</button>
+  </div>
+  <div class="legend">
+    <span><span class="legend-dot" style="background:#7C6FCD"></span>Anwendungsschichten</span>
+    <span><span class="legend-dot" style="background:#3B9E7E"></span>Transportschichten</span>
+    <span><span class="legend-dot" style="background:#D07B3A"></span>Physische Schichten</span>
+  </div>
+  <div class="status-msg" id="status-msg">Klicke auf eine Schicht, um zu sehen, was sie tut</div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+    <div class="progress-label"><span id="prog-left">0 von 7 Schichten</span><span id="prog-pct">0%</span></div>
+  </div>
+  <div class="stack" id="stack"></div>
+</div>
+<script>
+const layers = [
+  { num: 7, name: "Anwendung", short: "Schnittstelle zum Benutzer", color: "#7C6FCD", accent: "#7C6FCD", send: "Du öffnest WhatsApp, nimmst die Sprachnachricht auf und drückst auf Senden. Diese Schicht ist der Berührungspunkt zwischen dem Menschen und dem Netzwerk.", recv: "WhatsApp empfängt die fertig verarbeitete Audiodatei. Deine Freundin drückt auf Play und hört deine Stimme. Die Nachricht ist angekommen!" },
+  { num: 6, name: "Darstellung", short: "Verschlüsselt, komprimiert, formatiert", color: "#9B6FBD", accent: "#9B6FBD", send: "Das Audio wird komprimiert, um weniger Speicherplatz zu benötigen, verschlüsselt, damit niemand es unterwegs lesen kann, und in einem Standardformat verpackt.", recv: "Die Nachricht wird mit dem richtigen Schlüssel entschlüsselt, dekomprimiert und in das Audioformat umgewandelt, das das Telefon abspielen kann." },
+  { num: 5, name: "Sitzung", short: "Öffnet und verwaltet die Verbindung", color: "#5B8FC9", accent: "#5B8FC9", send: "Es wird ein Kanal zwischen deinem Telefon und dem WhatsApp-Server geöffnet – ein 'Bist du da?' bevor gesendet wird. Er bleibt während der gesamten Übertragung offen.", recv: "Es wird bestätigt, dass die Verbindung noch aktiv ist und dass dieses Paket zur richtigen Sitzung gehört (es können mehrere gleichzeitig offen sein)." },
+  { num: 4, name: "Transport", short: "Teilt auf, nummeriert und garantiert", color: "#3B9E7E", accent: "#3B9E7E", send: "Das Audio wird in nummerierte Fragmente (Segmente) aufgeteilt. Falls eines unterwegs verloren geht, wird es so lange erneut gesendet, bis alle angekommen sind.", recv: "Alle Fragmente werden empfangen, auf Vollständigkeit geprüft und anhand ihrer ursprünglichen Nummerierung neu zusammengesetzt." },
+  { num: 3, name: "Netzwerk", short: "Vergibt IPs und wählt die Route", color: "#4CAF7D", accent: "#4CAF7D", send: "Jedem Fragment wird eine IP-Adresse zugewiesen und die effizienteste Route zum Ziel berechnet, auch wenn sie durch Dutzende von Servern führt.", recv: "Die Zieladresse wird gelesen und bestätigt, dass dieses Paket wirklich für das Telefon deiner Freundin bestimmt ist und nicht für ein anderes Gerät." },
+  { num: 2, name: "Sicherung", short: "Steuert jeden lokalen Abschnitt", color: "#C4893A", accent: "#C4893A", send: "Die Daten werden in Frames verpackt und der konkrete Abschnitt gesteuert (z. B. dein Telefon → der Router). Verhindert, dass zwei Geräte gleichzeitig senden.", recv: "Es wird geprüft, ob die empfangenen Bits durch Störungen beschädigt wurden. Bei einem Fehler in diesem Abschnitt werden sie verworfen und eine erneute Übertragung angefordert." },
+  { num: 1, name: "Physisch", short: "Wandelt Bits in echte Signale um", color: "#D07B3A", accent: "#D07B3A", send: "Die Bits werden in WLAN-Funkwellen umgewandelt, die durch die Luft deines Zimmers bis zum Router reisen. Diese Schicht kennt keine Nachrichten – sie wandelt nur Energie um.", recv: "Die Antenne empfängt die Funkwellen und wandelt sie in eine Kette aus Nullen und Einsen um, damit das System sie verarbeiten kann." }
+];
+
+let dir = 'send';
+let activeIdx = null;
+const msgs = {
+  send: ["Klicke auf eine Schicht, um zu sehen, was sie tut", "Schicht 7 → die Information beginnt ihre Reise ⬇️", "Schicht 6 → die Nachricht wird für den Transport vorbereitet ⬇️", "Schicht 5 → der Kommunikationskanal wird aufgebaut ⬇️", "Schicht 4 → die Nachricht wird in Fragmente aufgeteilt ⬇️", "Schicht 3 → jedes Fragment erhält seine Adresse ⬇️", "Schicht 2 → der lokale Abschnitt wird gesteuert ⬇️", "Schicht 1 → die Signale gehen auf die Reise! 📡"],
+  recv: ["Klicke auf eine Schicht, um zu sehen, was sie tut", "Schicht 1 → die Signale erreichen die Antenne ⬇️", "Schicht 2 → die Bits werden geprüft und geordnet ⬇️", "Schicht 3 → der richtige Empfänger wird bestätigt ⬇️", "Schicht 4 → die Fragmente werden zusammengesetzt ⬇️", "Schicht 5 → die richtige Sitzung wird identifiziert ⬇️", "Schicht 6 → das Audio wird entschlüsselt und dekomprimiert ⬇️", "Schicht 7 → deine Freundin hört deine Stimme! 🎉"]
+};
+
+function setDir(d, btn) {
+  dir = d;
+  document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeIdx = null;
+  document.getElementById('status-msg').textContent = msgs[d][0];
+  updateProgress(0);
+  render();
+}
+
+function updateProgress(count) {
+  const pct = Math.round((count / 7) * 100);
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('prog-left').textContent = count + ' von 7 Schichten';
+  document.getElementById('prog-pct').textContent = pct + '%';
+}
+
+function render() {
+  const list = dir === 'send' ? [...layers] : [...layers].reverse();
+  const stack = document.getElementById('stack');
+  stack.innerHTML = '';
+  list.forEach((l, i) => {
+    const arrow = i < list.length - 1 ? '↓' : '';
+    const isActive = activeIdx !== null && list[activeIdx] && list[activeIdx].num === l.num;
+    const div = document.createElement('div');
+    div.className = 'layer' + (isActive ? ' active' : '');
+    div.style.setProperty('--accent', l.accent);
+    div.innerHTML = `
+      <div class="num" style="background:${l.color}">${l.num}</div>
+      <div class="main">
+        <div class="layer-name">${l.name}</div>
+        <div class="layer-sub">${l.short}</div>
+        <div class="detail${isActive ? ' show' : ''}">${dir === 'send' ? l.send : l.recv}</div>
+      </div>
+      <div class="arrow-col">${arrow}</div>
+    `;
+    div.onclick = () => {
+      if (activeIdx !== null && list[activeIdx] && list[activeIdx].num === l.num) {
+        activeIdx = null;
+        document.getElementById('status-msg').textContent = msgs[dir][0];
+        updateProgress(0);
+      } else {
+        activeIdx = i;
+        document.getElementById('status-msg').textContent = msgs[dir][i + 1] || '';
+        updateProgress(i + 1);
+      }
+      render();
+    };
+    stack.appendChild(div);
+  });
+}
+render();
+</script>
