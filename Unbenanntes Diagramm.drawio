@@ -32,7 +32,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cTqvvi8PHSdz2XdaH1Yj-7" parent="1" style="sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.computers_and_peripherals.laptop;" value="" vertex="1">
-          <mxGeometry height="61" width="90" x="414" y="570" as="geometry" />
+          <mxGeometry height="61" width="90" x="420.4" y="570" as="geometry" />
         </mxCell>
         <mxCell id="cTqvvi8PHSdz2XdaH1Yj-12" edge="1" parent="1" source="cTqvvi8PHSdz2XdaH1Yj-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="9lQiNnFmmHgeVvoShuag-1">
           <mxGeometry relative="1" as="geometry" />
