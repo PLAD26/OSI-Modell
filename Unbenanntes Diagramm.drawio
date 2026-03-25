@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="9lQiNnFmmHgeVvoShuag-1" parent="1" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/switch/Switch_48_port_L2.svg;" value="" vertex="1">
-          <mxGeometry height="52.8" width="78" x="300" y="220" as="geometry" />
+          <mxGeometry height="52.8" width="78" x="230" y="230" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
