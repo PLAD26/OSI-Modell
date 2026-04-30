@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0">
   <diagram name="Seite-1" id="t6AjFAuNqOU1hsxiW9TM">
-    <mxGraphModel dx="721" dy="462" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="598" dy="383" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -169,6 +169,15 @@
         <mxCell id="-kCqVIy6IB79yOtlQ9_p-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;IP: 192.168.1.10/24&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="79.5" x="907" y="119.9" as="geometry" />
         </mxCell>
+        <mxCell id="-kCqVIy6IB79yOtlQ9_p-22" edge="1" parent="1" source="-kCqVIy6IB79yOtlQ9_p-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.84;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="190" />
+              <mxPoint x="1030" y="200" />
+            </Array>
+            <mxPoint x="1070" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="-kCqVIy6IB79yOtlQ9_p-4" parent="1" style="sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.computers_and_peripherals.macintosh;" value="" vertex="1">
           <mxGeometry height="64" width="99" x="892.5" y="158" as="geometry" />
         </mxCell>
@@ -219,6 +228,17 @@
         </mxCell>
         <mxCell id="-kCqVIy6IB79yOtlQ9_p-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;IP: 8.8.8.8/24&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="79.5" x="1865.5" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="-kCqVIy6IB79yOtlQ9_p-21" edge="1" parent="1" source="-kCqVIy6IB79yOtlQ9_p-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.84;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="-kCqVIy6IB79yOtlQ9_p-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="75" />
+              <mxPoint x="1030" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kCqVIy6IB79yOtlQ9_p-23" edge="1" parent="1" source="-kCqVIy6IB79yOtlQ9_p-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.84;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="-kCqVIy6IB79yOtlQ9_p-10">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
