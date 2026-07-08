@@ -34,14 +34,14 @@
         <mxCell id="wv0mPs4DhfYQ3B34W7TD-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="IP: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.15&lt;div&gt;Subnetzmaske: 255.255.255.0&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="241" x="219" y="210" as="geometry" />
         </mxCell>
-        <mxCell id="wv0mPs4DhfYQ3B34W7TD-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="IP: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.5" vertex="1">
-          <mxGeometry height="30" width="110" x="284.5" y="585" as="geometry" />
+        <mxCell id="wv0mPs4DhfYQ3B34W7TD-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="IP: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.5&lt;div&gt;Subnetzmaske: 255.255.255.0&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="225.5" x="226.75" y="590" as="geometry" />
         </mxCell>
-        <mxCell id="wv0mPs4DhfYQ3B34W7TD-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="IP: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.10" vertex="1">
-          <mxGeometry height="30" width="110" x="434.5" y="444" as="geometry" />
+        <mxCell id="wv0mPs4DhfYQ3B34W7TD-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="IP: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.10&lt;div&gt;Subnetzmaske: 255.255.255.0&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="225.5" x="370" y="450" as="geometry" />
         </mxCell>
-        <mxCell id="wv0mPs4DhfYQ3B34W7TD-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="IP: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.20&lt;div&gt;Subnetzmaske:&lt;/div&gt;" vertex="1">
-          <mxGeometry height="30" width="108.75" x="145.13" y="444" as="geometry" />
+        <mxCell id="wv0mPs4DhfYQ3B34W7TD-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="IP: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.20&lt;div&gt;Subnetzmaske: 255.255.255.0&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="224.87" x="85.13" y="450" as="geometry" />
         </mxCell>
         <mxCell id="wv0mPs4DhfYQ3B34W7TD-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" value="IP:&amp;nbsp; &amp;nbsp;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.10&lt;/font&gt;.5&lt;div&gt;Subnetzmaske:&amp;nbsp;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;255.255.255&lt;/font&gt;.0&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="220" x="90" y="30" as="geometry" />
