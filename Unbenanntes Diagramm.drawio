@@ -97,7 +97,7 @@
         <mxCell id="oEBAdDw35jwtDlaB1WBJ-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" value="IP:&amp;nbsp;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168&lt;/font&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;.1&lt;/font&gt;.5&lt;div&gt;Subnetzmaske: &lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;255.255&lt;/font&gt;.0.0&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="225.5" x="158.5" y="1670" as="geometry" />
         </mxCell>
-        <mxCell id="oEBAdDw35jwtDlaB1WBJ-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" value="IP:&amp;nbsp;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.168.1&lt;/font&gt;.20&lt;div&gt;Subnetzmaske:&amp;nbsp; &amp;nbsp;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;255.255.255&lt;/font&gt;.0&lt;/div&gt;" vertex="1">
+        <mxCell id="oEBAdDw35jwtDlaB1WBJ-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" value="IP:&amp;nbsp;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;192.16&lt;/font&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;8&lt;/font&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237));&quot;&gt;.9&lt;/font&gt;.20&lt;div&gt;Subnetzmaske:&amp;nbsp; &amp;nbsp;&lt;font style=&quot;background-color: transparent; color: rgb(255, 0, 0);&quot;&gt;255.255.&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;0.0&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="225.5" x="310.5" y="1530" as="geometry" />
         </mxCell>
         <mxCell id="oEBAdDw35jwtDlaB1WBJ-13" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;" value="" vertex="1">
@@ -162,6 +162,12 @@
         </mxCell>
         <mxCell id="JRTNB2lRSj0TyGBS4lLF-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Switch" vertex="1">
           <mxGeometry height="30" width="60" x="299.25" y="2620" as="geometry" />
+        </mxCell>
+        <mxCell id="JRTNB2lRSj0TyGBS4lLF-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=50;fontStyle=1;fontFamily=Helvetica;" value="&lt;span&gt;IP: 192.168.1.5 /16&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="576.5" x="100" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="JRTNB2lRSj0TyGBS4lLF-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=50;fontStyle=1;fontFamily=Helvetica;" value="&lt;span&gt;IP: 192.168.1.5/8&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="576.5" x="100" y="1880" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
